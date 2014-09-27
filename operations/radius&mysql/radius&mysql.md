@@ -15,7 +15,7 @@ radius，远端用户拨入验证服务（RADIUS, Remote Authentication Dial In 
 
 yum install freeradius freeradius-mysql freeradius-utils -y
 
-![](manual/programming/radius&mysql/1.jpg)
+![](document/operations/radius&mysql/1.jpg)
 
 低版本centosyum源里可能没有freeradius的安装包，可以去官网下载源码包安装（http://http://freeradius.org/）
 
@@ -25,7 +25,7 @@ yum install freeradius freeradius-mysql freeradius-utils -y
 
 - 文件2：`/etc/raddb/sql.conf`，如下图，database是指数据库类型,默认mysql不用管；server是数据库ip地址,login是radius登录上验证的用户名,password是密码，`radius_db`是要给radius新建的数据库名，这些都可以修改，下面还有一些选项是表单名，一般不需要修改。
 
-![](manual/programming/radius&mysql/1.jpg)
+![](document/operations/radius&mysql/1.jpg)
 
 
 打开从数据库查询nas支持
@@ -92,7 +92,7 @@ mysql -h 10.0.128.220 -uroot -p123456 radius < nas.sql
 - 导入完后需要使用这样一条命令来新建radius用户，并且让其能够远程查询,'radius'@'192.168.12.186',前面是用户名，后面是允许登录的IP地址，也就是我们的radius服务器IP。
 `grant all privileges on *.* to 'radius'@'192.168.12.186' identified by '123456' with grant option;`
 
-![](manual/programming/radius&mysql/5.jpg)
+![](document/operations/radius&mysql/5.jpg)
 
 
 5. 在数据库里添加验证用户，这里提供一个脚本RadiusUserAdd.sh，差不多就这样insert进数据库，可以自己写程序，添加加密。
@@ -119,9 +119,9 @@ fi
 
 执行效果：
 
-![](manual/programming/radius&mysql/3.jpg)
+![](document/operations/radius&mysql/3.jpg)
 
-![](manual/programming/radius&mysql/4.jpg)
+![](document/operations/radius&mysql/4.jpg)
 
 
 6. 至此radius服务器是搭建完毕，启动服务成功。
@@ -132,8 +132,8 @@ chkconfig radiusd on	设置为开机启动
 
 7. 验证，用前文说的windows上的测试工具NTRadPing.exe。
 
-![](manual/programming/radius&mysql/6.jpg)
+![](document/operations/radius&mysql/6.jpg)
 
-![](manual/programming/radius&mysql/7.jpg)
+![](document/operations/radius&mysql/7.jpg)
 
 ### 实验完成
