@@ -1,4 +1,4 @@
-# radius连接mysql认证
+# DDwrt+radius+mysql wifi部署
 
 ### 一、radius的简介
 
@@ -138,8 +138,22 @@ chkconfig radiusd on	设置为开机启动
 不存在用户：
 ![](7.jpg)
 
-### 三、DD-WRT配置(未测试，密钥更新时间设为0)
+### 三、DD-WRT配置(在无限安全里选择wpa2加密，而不能直接选择左边的radius认证)
 
 ![](8.jpg)
 
+### 四、手机测试
+- Android
+
+![](9.jpg)
+
+![](10.jpg)
+
+- IOS
+
+![](11.jpg)
+
+![](12.jpg)
+
+![](13.jpg)
 ### 实验完成
